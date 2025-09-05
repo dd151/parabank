@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import pages.AccountsOverviewPage;
 
 public class AccountsOverviewSteps {
-	private AccountsOverviewPage accountsOverviewPage;
+	private final AccountsOverviewPage accountsOverviewPage;
 
 	public AccountsOverviewSteps() {
 		this.accountsOverviewPage = new AccountsOverviewPage();

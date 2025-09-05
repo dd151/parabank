@@ -2,6 +2,11 @@ name: Java CI with Maven
 
 on:
   workflow_dispatch:
+    inputs:
+      cucumberTag:
+        description: 'Cucumber tag to run'
+        required: true
+        default: '@Registration'
 
 jobs:
   build:
@@ -14,5 +19,21 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+
     - name: Run Maven Tests
-      run: mvn clean test -Dcucumber.filter.tags="@Registration" -Dheadless
+      run: mvn clean test -Dcucumber.filter.tags="${{ github.event.inputs.cucumberTag }}" -Dheadless
+
+    - name: Generate HTML report
+      run: mvn surefire-report:report
+
+    - name: Upload Surefire XML Reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: surefire-xml
+        path: target/surefire-reports/
+
+    - name: Upload Surefire HTML Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: surefire-html
+        path: target/site/surefire-report/

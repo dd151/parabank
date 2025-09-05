@@ -8,7 +8,7 @@ import pages.WelcomePage;
 
 public class WelcomeSteps {
 
-	private WelcomePage welcomePage;
+	private final WelcomePage welcomePage;
 
 	public WelcomeSteps() {
 		this.welcomePage = new WelcomePage();

@@ -16,7 +16,7 @@ import pages.WelcomePage;
 public class RegistrationSteps {
 
 	private RegistrationPage registrationPage;
-	private LoginPage loginPage;
+	private final LoginPage loginPage;
 	private WelcomePage welcomePage;
 
 	public RegistrationSteps() {
