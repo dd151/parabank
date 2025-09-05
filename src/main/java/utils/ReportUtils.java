@@ -22,9 +22,27 @@ public class ReportUtils {
 	private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 	private static String reportPath;
 
+    private static void cleanPreviousReports() {
+        try {
+            // Delete old reports folder
+            File reportsDir = new File(System.getProperty("user.dir") + "/reports");
+            if (reportsDir.exists()) {
+                FileUtils.cleanDirectory(reportsDir); // deletes all files inside
+            }
+            // Recreate screenshots folder
+            File screenshotsDir = new File(System.getProperty("user.dir") + "/reports/screenshots");
+            if (!screenshotsDir.exists()) {
+                screenshotsDir.mkdirs();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 	// Initialize ExtentReports once
 	public static void initReports() {
 		if (extent == null) {
+            cleanPreviousReports();
 			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 			reportPath = System.getProperty("user.dir") + "/reports/ExtentReport_" + timestamp + ".html";
 			ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
