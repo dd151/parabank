@@ -6,7 +6,7 @@ on:
       cucumberTag:
         description: 'Cucumber tag to run'
         required: true
-        default: '@Registration'
+        default: '@Login'
 
 jobs:
   build:
@@ -36,4 +36,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: surefire-html
-        path: target/site/surefire-report/
+        path: reports/surefire-reports/
