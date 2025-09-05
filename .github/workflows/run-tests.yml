@@ -27,13 +27,13 @@ jobs:
       run: mvn surefire-report:report
 
     - name: Upload Surefire XML Reports
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: surefire-xml
         path: target/surefire-reports/
 
     - name: Upload Surefire HTML Report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: surefire-html
         path: target/site/surefire-report/
