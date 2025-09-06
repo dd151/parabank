@@ -24,7 +24,7 @@ jobs:
       run: mvn clean test -Dcucumber.filter.tags="${{ github.event.inputs.cucumberTag }}" -Dheadless
 
     - name: Generate HTML report
-      run: mvn surefire-report:report
+      run: mvn surefire-report:report-only
 
     - name: Upload Surefire Reports
       uses: actions/upload-artifact@v4
