@@ -7,6 +7,15 @@ on:
         description: 'Cucumber tag to run'
         required: true
         default: '@Login'
+      browser:
+        description: 'Browser for Running Tests'
+        required: true
+        default: 'chrome'
+        type: choice
+        options:
+          - chrome
+          - firefox
+          - edge
 
 jobs:
   build:

@@ -10,7 +10,7 @@ public class Hooks {
 
 	@Before(order = 1)
 	public void setUp(Scenario scenario) {
-		DriverUtils.initDriver("chrome");
+		DriverUtils.initDriver(System.getProperty("browser"));
 	}
 
 	@After
