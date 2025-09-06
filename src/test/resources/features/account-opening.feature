@@ -43,7 +43,7 @@ Feature: New Account Opening
       | CHECKING     |                  |
       | SAVINGS      |                  |
 
-  Scenario Outline: Verify account activity details after opening new "<Account Type>" account
+  Scenario Outline: Verify account overview details after opening new "<Account Type>" account
     When user navigates to "Open New Account" page
     And user opens new account with "<Account Type>" and "<Existing Account>"
     Then verify a new account is created successfully with account number
