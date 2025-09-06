@@ -44,6 +44,7 @@ public class DriverUtils {
             if (System.getProperty("headless") != null) {
                 options.addArguments("--headless");
             }
+            driver = new FirefoxDriver(options);
         } else if (browserName.equalsIgnoreCase("edge")) {
             WebDriverManager.edgedriver().setup();
             EdgeOptions options = new EdgeOptions();
