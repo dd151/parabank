@@ -30,7 +30,10 @@ jobs:
         cache: maven
 
     - name: Run Maven Tests
-      run: mvn clean test -Dcucumber.filter.tags="${{ github.event.inputs.cucumberTag }}" -Dheadless
+      run: mvn clean test \
+        -Dcucumber.filter.tags="${{ github.event.inputs.cucumberTag }}"  \
+        -Dbrowser="${{ github.event.inputs.browser }}" \
+        -Dheadless
 
     - name: Generate HTML report
       run: mvn surefire-report:report-only
