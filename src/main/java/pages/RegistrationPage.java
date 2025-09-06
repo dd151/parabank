@@ -46,7 +46,7 @@ public class RegistrationPage extends Page {
 	}
 
 	public boolean isDisplayed() {
-		return waitForVisibility(signUpHeaderText, 5);
+		return waitForVisibility(signUpHeaderText, 5).isDisplayed();
 	}
 
 	public RegistrationPage enterInputs(String firstName, String lastName, String address, String city, String state,

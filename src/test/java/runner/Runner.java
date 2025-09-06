@@ -7,6 +7,6 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/features", glue = { "steps" }, plugin = {
-		"pretty" }, monochrome = true, tags = "@Login")
+		"pretty" }, monochrome = true, tags = "@OpenNewAccount")
 public class Runner {
 }

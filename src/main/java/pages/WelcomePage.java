@@ -15,7 +15,7 @@ public class WelcomePage extends Page {
 	}
 
 	public boolean isDisplayed() {
-		return waitForVisibility(welcomeTitle, 5);
+		return waitForVisibility(welcomeTitle, 5).isDisplayed();
 	}
 
 	public String getWelcomeTitle() {
