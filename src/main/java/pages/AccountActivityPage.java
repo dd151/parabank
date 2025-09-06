@@ -50,7 +50,7 @@ public class AccountActivityPage extends Page {
     }
 
     public String getAccountAvailableBalance() {
-//        waitForTextToBePresent(accountAvailableBalance, 2);
+        waitForTextToBePresent(accountAvailableBalance, 3);
         return getText(accountAvailableBalance);
     }
 
