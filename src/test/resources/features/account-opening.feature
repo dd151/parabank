@@ -55,5 +55,3 @@ Feature: New Account Opening
       | Account Type | Existing Account |
       | CHECKING     |                  |
       | SAVINGS      |                  |
-
-

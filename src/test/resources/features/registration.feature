@@ -6,7 +6,7 @@ Feature: User Registration
   @Registration
   Scenario: Verify user navigation to Registration page
     When user clicks on 'Register' link
-    Then verify user is navigated to 'Registration' page
+    Then verify user is navigated to "Registration" page
     And verify the registration form is displayed with fields:
       | First Name |
       | Last Name  |
@@ -23,7 +23,7 @@ Feature: User Registration
   @Registration
   Scenario: Verify suggessful user registration in Registration Page
     When user clicks on 'Register' link
-    Then verify user is navigated to 'Registration' page
+    Then verify user is navigated to "Registration" page
     And user enters registeration details:
       | Field      | Value         |
       | First Name | Ushno         |
@@ -38,5 +38,5 @@ Feature: User Registration
       | Password   | sehun@123     |
       | Confirm    | sehun@123     |
     And user clicks on 'Register' button
-    Then verify user is navigated to 'Welcome' page
+    Then verify user is navigated to "Welcome" page
     And verify welcome title "Welcome ushnogorom123" is displayed in 'Welcome' page

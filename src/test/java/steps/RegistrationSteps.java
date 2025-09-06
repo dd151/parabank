@@ -28,11 +28,6 @@ public class RegistrationSteps {
 		registrationPage = loginPage.clickRegister();
 	}
 
-	@Then("verify user is navigated to 'Registration' page")
-	public void userNavigatedToRegistrationPage() {
-		Assert.assertTrue("Registration Page should be displayed", registrationPage.isDisplayed());
-	}
-
 	@And("verify the registration form is displayed with fields:")
 	public void registrationFormIsDisplayedWithFields(DataTable table) {
 		List<String> expectedList = table.asList();

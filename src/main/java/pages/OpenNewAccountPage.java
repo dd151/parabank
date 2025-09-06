@@ -23,7 +23,6 @@ public class OpenNewAccountPage extends Page {
         PageFactory.initElements(driver, this);
     }
 
-
     public boolean isDisplayed() {
         return true;
     }
