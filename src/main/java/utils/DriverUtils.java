@@ -11,6 +11,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 
 public class DriverUtils {
 
@@ -38,28 +39,14 @@ public class DriverUtils {
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("--width=1920");
             options.addArguments("--height=1080");
-            options.addArguments("--ignore-certificate-errors");
-            options.addArguments("-profile");
+            options.setAcceptInsecureCerts(true);
             options.addArguments("/tmp/firefox-" + UUID.randomUUID());
             if (System.getProperty("headless") != null) {
                 options.addArguments("--headless");
             }
+            FirefoxProfile profile = new FirefoxProfile();
+            options.setProfile(profile);;
             driver = new FirefoxDriver(options);
-        } else if (browserName.equalsIgnoreCase("edge")) {
-            WebDriverManager.edgedriver().setup();
-            EdgeOptions options = new EdgeOptions();
-            options.addArguments("start-maximized");
-            options.addArguments("disable-extensions");
-            options.addArguments("ignore-certificate-errors");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--remote-allow-origins=*");
-            options.addArguments("--user-data-dir=/tmp/edge-" + UUID.randomUUID());
-            if (System.getProperty("headless") != null) {
-                options.addArguments("--headless=new");
-                options.addArguments("--disable-gpu");
-            }
-            driver = new EdgeDriver(options);
         }
 
         DriverUtils.driver = driver;
