@@ -7,6 +7,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.OpenNewAccountPage;
 import utils.DateUtils;
+import utils.ReportUtils;
 import utils.ScenarioContext;
 
 public class OpenNewAccountSteps {
@@ -24,6 +25,7 @@ public class OpenNewAccountSteps {
                 .selectFromAccountId(existingAccountNumber)
                 .clickOpenNewAccount();
         scenarioContext.set("accountOpeningDate", DateUtils.getCurrentDate());
+        ReportUtils.takeScreenShot("User opens new account.");
     }
 
     @Then("verify a new account is created successfully with account number")
@@ -31,10 +33,12 @@ public class OpenNewAccountSteps {
         Assert.assertEquals("Account Opened!", openNewAccountPage.getOpenAccountResultHeader());
         Assert.assertEquals("Congratulations, your account is now open.", openNewAccountPage.getOpenAccountResultBody());
         scenarioContext.set("newAccountNumber", openNewAccountPage.getNewAccountID());
+        ReportUtils.takeScreenShot("New Account is created successfully with account number");
     }
 
     @And("user clicks on the created account number")
     public void userClicksOnTheCreatedAccountNumber() {
         openNewAccountPage.clickNewAccountID();
+        ReportUtils.takeScreenShot("User clicks on created account number");
     }
 }

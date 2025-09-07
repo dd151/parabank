@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.AccountActivityPage;
 import pages.grids.AccountActivityGrid;
+import utils.ReportUtils;
 import utils.ScenarioContext;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class AccountActivitySteps {
         Assert.assertEquals(dataMap.get("Account Type"), accountActivityPage.getAccountType());
         Assert.assertEquals(dataMap.get("Balance"), accountActivityPage.getAccountBalance());
         Assert.assertEquals(dataMap.get("Available"), accountActivityPage.getAccountAvailableBalance());
+        ReportUtils.takeScreenShot("Account Details are displayed.");
     }
 
     @And("verify the account activity details are displayed:")
@@ -47,6 +49,6 @@ public class AccountActivitySteps {
             Assert.assertEquals(expectedDebit, activityGrid.getFieldByIndex("Debit", i + 1));
             Assert.assertEquals(expectedCredit, activityGrid.getFieldByIndex("Credit", i + 1));
         }
-
+        ReportUtils.takeScreenShot("Account Activity Details are displayed.");
     }
 }

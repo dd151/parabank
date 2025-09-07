@@ -7,6 +7,7 @@ import org.junit.Assert;
 import io.cucumber.java.en.Then;
 import pages.AccountsOverviewPage;
 import pages.grids.AccountsOverviewGrid;
+import utils.ReportUtils;
 import utils.ScenarioContext;
 
 import java.util.Map;
@@ -32,6 +33,7 @@ public class AccountsOverviewSteps {
         Assert.assertEquals(expectedAccountNumber, accountsOverviewGrid.getFieldByAccountNumber("Account Number", expectedAccountNumber));
         Assert.assertEquals(expectedBalance, accountsOverviewGrid.getFieldByAccountNumber("Balance", expectedAccountNumber));
         Assert.assertEquals(expectedAvailableAmount, accountsOverviewGrid.getFieldByAccountNumber("Available Amount", expectedAccountNumber));
+        ReportUtils.takeScreenShot("Created Account Details are displayed.");
     }
 
 }

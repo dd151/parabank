@@ -36,5 +36,6 @@ public class CommonSteps {
         } else {
             throw new IllegalArgumentException("Page name not found: " + pageName);
         }
+        ReportUtils.takeScreenShot("User has navigated to: " + pageName + " page.");
     }
 }

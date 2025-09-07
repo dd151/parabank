@@ -27,6 +27,7 @@ public class RegistrationSteps {
 	@When("user clicks on 'Register' link")
 	public void clickRegisterLink() {
 		registrationPage = loginPage.clickRegister();
+        ReportUtils.takeScreenShot("User clicks on Register link");
 	}
 
 	@And("verify the registration form is displayed with fields:")
@@ -59,5 +60,6 @@ public class RegistrationSteps {
 	@And("^user clicks on 'Register' button$")
 	public void userClicksOnRegisterButton() {
 		welcomePage = registrationPage.clickRegister();
+        ReportUtils.takeScreenShot("User clicks on Register button");
 	}
 }
