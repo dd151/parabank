@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.*;
+import utils.ReportUtils;
 
 public class CommonSteps {
 
@@ -23,6 +24,7 @@ public class CommonSteps {
         } else {
             throw new IllegalArgumentException("Page name not found: " + pageName);
         }
+        ReportUtils.takeScreenShot("User has navigated to: " + pageName + " page.");
     }
 
     @When("user navigates to {string} page")

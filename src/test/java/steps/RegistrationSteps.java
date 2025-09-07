@@ -12,6 +12,7 @@ import io.cucumber.java.en.When;
 import pages.LoginPage;
 import pages.RegistrationPage;
 import pages.WelcomePage;
+import utils.ReportUtils;
 
 public class RegistrationSteps {
 
@@ -33,6 +34,7 @@ public class RegistrationSteps {
 		List<String> expectedList = table.asList();
 		Assert.assertEquals("Registration form input fields must match the expected list", expectedList,
 				registrationPage.getInputs());
+        ReportUtils.takeScreenShot("Registration form is displayed with fields");
 	}
 
 	@And("^user enters registeration details:$")
@@ -51,6 +53,7 @@ public class RegistrationSteps {
 		String confirmPassword = inputMap.get("Confirm");
 		registrationPage.enterInputs(firstName, lastName, address, city, state, zipCode, phone, ssn, userName, password,
 				confirmPassword);
+        ReportUtils.takeScreenShot("Registration form is displayed with fields");
 	}
 
 	@And("^user clicks on 'Register' button$")
