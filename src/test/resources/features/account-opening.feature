@@ -3,7 +3,7 @@ Feature: New Account Opening
 
   Background:
     Given user navigates to landing page
-    And user logs in with "john_smith" and "sehun@123"
+    And user logs in with "ushnogorom123" and "sehun@123"
     Then verify user is navigated to 'Accounts Overview' page
 
   Scenario Outline: Verify user is able to new "<Account Type>" account

@@ -3,27 +3,28 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import pages.AccountsOverviewPage;
-import pages.LoginPage;
+import pages.LandingPage;
 import utils.ReportUtils;
 
 public class LoginSteps {
 
-	private final LoginPage loginPage;
+	private final LandingPage landingPage;
 	private AccountsOverviewPage accountsOverviewPage;
 
 	public LoginSteps() {
-		this.loginPage = new LoginPage();
+		this.landingPage = new LandingPage();
 	}
 
 	@Given("user navigates to landing page")
 	public void userNavigatesToLandingPage() {
-		loginPage.navigateToLogin();
+		landingPage.open();
         ReportUtils.takeScreenShot("User is in landing page");
 	}
 
 	@When("^user logs in with \"([^\"]*)\" and \"([^\"]*)\"$")
 	public void userLogsInWithAnd(String username, String password) {
-		accountsOverviewPage = loginPage.enterInputs(username, password).clickLogin();
+		accountsOverviewPage = landingPage.enterInputs(username, password)
+                .login();
         ReportUtils.takeScreenShot("User logs in with credentials");
 	}
 }

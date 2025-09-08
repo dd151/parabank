@@ -27,7 +27,7 @@ public class OpenNewAccountPage extends Page {
         return true;
     }
 
-    public OpenNewAccountPage navigateToPage() {
+    public OpenNewAccountPage open() {
         navigateTo(OPEN_NEW_ACCOUNT_PAGE_URL);
         return this;
     }
@@ -46,7 +46,7 @@ public class OpenNewAccountPage extends Page {
         return this;
     }
 
-    public OpenNewAccountPage clickOpenNewAccount() {
+    public OpenNewAccountPage openNewAccount() {
         click(openNewAccount);
         return this;
     }

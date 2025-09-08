@@ -19,11 +19,11 @@ public class AccountsOverviewPage extends Page {
         this.accountsOverviewGrid = new AccountsOverviewGrid();
     }
 
-    public void navigateToPage() {
+    public void open() {
         navigateTo(ACCOUNTS_OVERVIEW_PAGE_URL);
     }
 
-    public boolean isDisplayed() {
+    public boolean isAt() {
         return waitForVisibility(accountsOverViewHeader, 5).isDisplayed();
     }
 

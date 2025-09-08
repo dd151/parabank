@@ -14,7 +14,7 @@ public class WelcomePage extends Page {
 		PageFactory.initElements(driver, this);
 	}
 
-	public boolean isDisplayed() {
+	public boolean isAt() {
 		return waitForVisibility(welcomeTitle, 5).isDisplayed();
 	}
 

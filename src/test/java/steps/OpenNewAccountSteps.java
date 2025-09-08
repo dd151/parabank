@@ -1,9 +1,7 @@
 package steps;
 
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.OpenNewAccountPage;
 import utils.DateUtils;
@@ -23,7 +21,7 @@ public class OpenNewAccountSteps {
     public void userOpensNewAccountWithAnd(String accountType, String existingAccountNumber) {
         openNewAccountPage.selectAccountType(accountType)
                 .selectFromAccountId(existingAccountNumber)
-                .clickOpenNewAccount();
+                .openNewAccount();
         scenarioContext.set("accountOpeningDate", DateUtils.getCurrentDate());
         ReportUtils.takeScreenShot("User opens new account.");
     }

@@ -7,9 +7,8 @@ import org.junit.Assert;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import pages.LoginPage;
+import pages.LandingPage;
 import pages.RegistrationPage;
 import pages.WelcomePage;
 import utils.ReportUtils;
@@ -17,30 +16,28 @@ import utils.ReportUtils;
 public class RegistrationSteps {
 
 	private RegistrationPage registrationPage;
-	private final LoginPage loginPage;
+	private final LandingPage landingPage;
 	private WelcomePage welcomePage;
 
 	public RegistrationSteps() {
-		this.loginPage = new LoginPage();
+		this.landingPage = new LandingPage();
 	}
 
 	@When("user clicks on 'Register' link")
 	public void clickRegisterLink() {
-		registrationPage = loginPage.clickRegister();
+		registrationPage = landingPage.register();
         ReportUtils.takeScreenShot("User clicks on Register link");
 	}
 
 	@And("verify the registration form is displayed with fields:")
-	public void registrationFormIsDisplayedWithFields(DataTable table) {
-		List<String> expectedList = table.asList();
+	public void registrationFormIsDisplayedWithFields(List<String> expectedList) {
 		Assert.assertEquals("Registration form input fields must match the expected list", expectedList,
 				registrationPage.getInputs());
         ReportUtils.takeScreenShot("Registration form is displayed with fields");
 	}
 
 	@And("^user enters registeration details:$")
-	public void userEntersEntersRegisterationDetails(DataTable table) {
-		Map<String, String> inputMap = table.asMap();
+	public void userEntersEntersRegisterationDetails(Map<String, String> inputMap) {
 		String firstName = inputMap.get("First Name");
 		String lastName = inputMap.get("Last Name");
 		String address = inputMap.get("Address");
@@ -59,7 +56,7 @@ public class RegistrationSteps {
 
 	@And("^user clicks on 'Register' button$")
 	public void userClicksOnRegisterButton() {
-		welcomePage = registrationPage.clickRegister();
+		welcomePage = registrationPage.register();
         ReportUtils.takeScreenShot("User clicks on Register button");
 	}
 }

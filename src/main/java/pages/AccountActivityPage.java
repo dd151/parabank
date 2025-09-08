@@ -30,7 +30,7 @@ public class AccountActivityPage extends Page {
         this.activityGrid = new AccountActivityGrid();
     }
 
-    public boolean isDisplayed() {
+    public boolean isAt() {
         return waitForVisibility(accountActivity, 5).isDisplayed();
     }
 

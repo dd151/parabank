@@ -11,10 +11,8 @@ public class RegistrationPage extends Page {
 
     @FindBy(xpath = "//h1[contains(text(),'Signing up is easy!')]")
     private WebElement signUpHeaderText;
-
     @FindBy(id = "customerForm")
     private WebElement customerForm;
-
     @FindBy(id = "customer.firstName")
     private WebElement firstNameInput;
     @FindBy(id = "customer.lastName")
@@ -31,7 +29,6 @@ public class RegistrationPage extends Page {
     private WebElement phoneNumberInput;
     @FindBy(id = "customer.ssn")
     private WebElement ssnInput;
-
     @FindBy(id = "customer.username")
     private WebElement usernameInput;
     @FindBy(id = "customer.password")
@@ -45,7 +42,7 @@ public class RegistrationPage extends Page {
         PageFactory.initElements(driver, this);
     }
 
-    public boolean isDisplayed() {
+    public boolean isAt() {
         return waitForVisibility(signUpHeaderText, 5).isDisplayed();
     }
 
@@ -65,7 +62,7 @@ public class RegistrationPage extends Page {
         return this;
     }
 
-    public WelcomePage clickRegister() {
+    public WelcomePage register() {
         click(registerButton);
         return new WelcomePage();
     }

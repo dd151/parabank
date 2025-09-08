@@ -4,7 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends Page {
+public class LandingPage extends Page {
 
 	@FindBy(linkText = "Register")
 	private WebElement registerLink;
@@ -15,27 +15,27 @@ public class LoginPage extends Page {
 	@FindBy(css = "input[value='Log In']")
 	private WebElement loginButton;
 
-	public LoginPage() {
+	public LandingPage() {
 		PageFactory.initElements(driver, this);
 	}
 
-	public LoginPage navigateToLogin() {
+	public LandingPage open() {
 		navigateTo("https://parabank.parasoft.com/parabank");
 		return this;
 	}
 
-	public RegistrationPage clickRegister() {
+	public RegistrationPage register() {
 		click(registerLink);
 		return new RegistrationPage();
 	}
 
-	public LoginPage enterInputs(String username, String password) {
+	public LandingPage enterInputs(String username, String password) {
 		type(usernameInput, username);
 		type(passwordInput, password);
 		return this;
 	}
 
-	public AccountsOverviewPage clickLogin() {
+	public AccountsOverviewPage login() {
 		click(loginButton);
 		return new AccountsOverviewPage();
 	}
